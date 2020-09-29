@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS pim_individual (id serial primary key, surname varchar, name varchar, patr_name varchar, birth_dt timestamp, has_citizenship boolean, gender_id integer, nationality_id integer, vip boolean, ethnic_group_id integer, social_group_id integer);
