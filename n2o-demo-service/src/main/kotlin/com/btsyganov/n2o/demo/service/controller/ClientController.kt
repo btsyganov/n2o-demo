@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
@@ -23,5 +24,10 @@ class ClientController(private val clientRepository: ClientRepository) {
             PageRequest.of(page - 1, size)
 
         return clientRepository.findAll(request)
+    }
+
+    @GetMapping("/clients/{id}")
+    fun findById(@PathVariable id: Int): Client {
+        return clientRepository.findById(id).orElseThrow()
     }
 }
