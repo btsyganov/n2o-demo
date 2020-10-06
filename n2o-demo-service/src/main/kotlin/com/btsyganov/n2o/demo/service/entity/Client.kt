@@ -1,44 +1,33 @@
 package com.btsyganov.n2o.demo.service.entity
 
-
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
-import javax.persistence.*
 
-
-@Table(name = "pim_individual")
-@Entity
+@Table("pim_individual")
 data class Client(
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Int,
 
-        @Column
         val surname: String? = null,
 
-        @Column
         val name: String? = null,
 
-        @Column
         val patrName: String? = null,
 
-        @Column(name = "birth_dt")
+        @Column("birth_dt")
         val birthDate: LocalDateTime? = null,
 
-        @Column
         val hasCitizenship: Boolean? = null,
 
-        @Column
         val genderId: Int? = null,
 
-        @Column
         val nationalityId: Int? = null,
 
-        @Column
         val vip: Boolean? = null,
 
-        @Column
         val ethnicGroupId: Int? = null,
 
-        @Column
         val socialGroupId: Int? = null
 )
